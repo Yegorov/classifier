@@ -178,7 +178,7 @@ module Classifier
       end
 
       def command_keywords
-        if @args.empty? && @stdin.nil? && $stdin.tty?
+        if @args.empty? && (@stdin.nil? || $stdin.tty?)
           show_getting_started
           return
         end
